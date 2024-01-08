@@ -4,6 +4,23 @@ import java.util.ArrayList;
 
 public class Rook extends ChessPiece {
     // === 0. NOTES ===
+    /*
+    y-axis       color black
+        7|
+        6|
+        5|
+        4|
+        3|
+        2|    p
+        1|
+        0| _  _  _  _  _  _  _  _  x-axis
+           0  1  2  3  4  5  6  7
+                 color white
+
+        p = (x,y)
+     */
+
+
     // === 1. CLASS VARIABLES ===
     // === 2. OBJECT VARIABLES ===
     // === 3. CONSTRUCTORS ===
