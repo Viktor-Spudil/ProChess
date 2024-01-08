@@ -44,6 +44,14 @@ public class Pawn extends ChessPiece {
         int y = position.y;
 
         // WHITE
+        // Initial move (white)
+        if ((this.getColor() == Color.WHITE) && (this.getHasMoved() == false)) {
+            // Check if the field is free
+            if (chessBoard[x][y + 2] == null) {
+                possibleTurns.add(new Position(x, y + 2));
+            }
+        }
+
         // Move north (white)
         if ((this.getColor() == Color.WHITE) && ((y + 1) < 8)) {
             // Check if the field is free
@@ -72,6 +80,14 @@ public class Pawn extends ChessPiece {
 
 
         // BLACK
+        // Initial move (black)
+        if ((this.getColor() == Color.BLACK) && (this.getHasMoved() == false)) {
+            // Check if the field is free
+            if (chessBoard[x][y - 2] == null) {
+                possibleTurns.add(new Position(x, y - 2));
+            }
+        }
+
         // Move south (black)
         if ((this.getColor() == Color.BLACK) && ((y - 1) >= 0)) {
             // Check if the field is free
