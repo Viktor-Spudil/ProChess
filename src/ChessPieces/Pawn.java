@@ -76,7 +76,7 @@ public class Pawn extends ChessPiece {
             }
         }
 
-        // TODO: En-Passante
+        // TODO: En-Passante white
 
 
         // BLACK
@@ -112,7 +112,7 @@ public class Pawn extends ChessPiece {
             }
         }
 
-        // TODO: En-Passante
+        // TODO: En-Passante black
         return possibleTurns;
     }
 
