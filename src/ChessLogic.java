@@ -7,6 +7,7 @@ import ChessPieces.*;
 public abstract class ChessLogic {
     // === 0. NOTES ===
     /*
+                   north
     y-axis       color black
         7| R  Kn B  Q  Ki B  Kn R
         6| P  P  P  P  P  P  P  P
