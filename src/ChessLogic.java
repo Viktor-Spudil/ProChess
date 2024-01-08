@@ -13,10 +13,10 @@ public abstract class ChessLogic {
     // --- 3.2 INSTANCE INITIALIZER ---
     // --- 3.3 REAL CONSTRUCTORS ---
     // === 4. STATIC METHODS ===
-    public static boolean isValidTurn(ChessPiece[][] chessBoard, Position from, Position to) {
-        ArrayList<Position> possibleTurns = getPossibleTurns(chessBoard, from);
+    public static boolean isValidTurn(ChessPiece[][] chessBoard, Position moveFrom, Position moveTo) {
+        ArrayList<Position> possibleTurns = getPossibleTurns(chessBoard, moveFrom);
 
-        return possibleTurns.contains(to);
+        return possibleTurns.contains(moveTo);
     }
 
     public static ArrayList<Position> getPossibleTurns(ChessPiece[][] chessBoard, Position position) {
