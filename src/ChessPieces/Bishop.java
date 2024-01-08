@@ -6,14 +6,15 @@ public class Bishop extends ChessPiece {
     // === 0. NOTES ===
     /*
     y-axis       color black
-        7|
-        6|
+        7| R  Kn B  Q  Ki B  Kn R
+        6| P  P  P  P  P  P  P  P
         5|
         4|
-        3|
-        2|    p
-        1|
-        0| _  _  _  _  _  _  _  _  x-axis
+        3|          p
+        2|
+        1| P  P  P  P  P  P  P  P
+        0| R  Kn B  Ki Q  B  Kn R
+         + _  _  _  _  _  _  _  _  x-axis
            0  1  2  3  4  5  6  7
                  color white
 
