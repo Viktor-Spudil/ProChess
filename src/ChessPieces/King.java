@@ -109,7 +109,7 @@ public class King extends ChessPiece {
                 }
                 // Castling east (white)
                 if ((chessBoard[4][0] == null) && (chessBoard[5][0] == null) && (chessBoard[6][0] == null) && (chessBoard[7][0].getHasMoved() == false)) {
-                    possibleTurns.add(new Position(5,0));
+                    possibleTurns.add(new Position(6,0));
                 }
             }
             if (this.getColor() == Color.BLACK) {
@@ -119,7 +119,7 @@ public class King extends ChessPiece {
                 }
                 // Castling east (black)
                 if ((chessBoard[5][7] == null) && (chessBoard[6][7] == null) && (chessBoard[7][7].getHasMoved() == false)) {
-                    possibleTurns.add(new Position(5,7));
+                    possibleTurns.add(new Position(6,7));
                 }
             }
         }
