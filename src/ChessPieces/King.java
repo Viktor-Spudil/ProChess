@@ -104,21 +104,21 @@ public class King extends ChessPiece {
         if (this.getHasMoved() == false) {
             if (this.getColor() == Color.WHITE) {
                 // Castling west (white)
-                if ((chessBoard[2][0] == null) && (chessBoard[1][0] == null)) {
+                if ((chessBoard[1][0] == null) && (chessBoard[2][0] == null) && (chessBoard[0][0].getHasMoved() == false)) {
                     possibleTurns.add(new Position(2,0));
                 }
                 // Castling east (white)
-                if ((chessBoard[4][0] == null) && (chessBoard[5][0] == null) && (chessBoard[6][0] == null)) {
+                if ((chessBoard[4][0] == null) && (chessBoard[5][0] == null) && (chessBoard[6][0] == null) && (chessBoard[7][0].getHasMoved() == false)) {
                     possibleTurns.add(new Position(5,0));
                 }
             }
             if (this.getColor() == Color.BLACK) {
                 // Castling west (black)
-                if ((chessBoard[3][7] == null) && (chessBoard[2][7] == null) && (chessBoard[1][7] == null)) {
+                if ((chessBoard[1][7] == null) && (chessBoard[2][7] == null) && (chessBoard[3][7] == null) && (chessBoard[0][7].getHasMoved() == false)) {
                     possibleTurns.add(new Position(2,7));
                 }
                 // Castling east (black)
-                if ((chessBoard[5][7] == null) && (chessBoard[6][7] == null)) {
+                if ((chessBoard[5][7] == null) && (chessBoard[6][7] == null) && (chessBoard[7][7].getHasMoved() == false)) {
                     possibleTurns.add(new Position(6,7));
                 }
             }

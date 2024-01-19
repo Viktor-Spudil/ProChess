@@ -25,6 +25,9 @@ public class Pawn extends ChessPiece {
 
     // === 1. CLASS VARIABLES ===
     // === 2. OBJECT VARIABLES ===
+    private boolean isEnPassantTarget = false;
+
+
     // === 3. CONSTRUCTORS ===
     // --- 3.1 STATIC BLOCKS ---
     // --- 3.2 INSTANCE INITIALIZER ---
@@ -36,6 +39,15 @@ public class Pawn extends ChessPiece {
 
     // === 4. STATIC METHODS ===
     // === 5. GETTER AND SETTER ===
+    public boolean getIsEnPassantTarget() {
+        return this.isEnPassantTarget;
+    }
+
+    public void setIsEnPassantTarget(boolean isEnPassantTarget) {
+        this.isEnPassantTarget = isEnPassantTarget;
+    }
+
+
     // === 6. MISCELLANEOUS OBJECT METHODS ===
     @Override
     public ArrayList<Position> getPossibleTurns(ChessPiece[][] chessBoard, Position position) {
@@ -66,6 +78,12 @@ public class Pawn extends ChessPiece {
             if ((chessBoard[x - 1][y + 1] != null) && (chessBoard[x - 1][y + 1].getColor() != this.getColor())) {
                 possibleTurns.add(new Position(x - 1, y + 1));
             }
+            else {
+                // En passant
+                if (enPassantWestPossible(chessBoard, position)) {
+                    possibleTurns.add(new Position(x - 1, y + 1));
+                }
+            }
         }
 
         // Kill north-east (white)
@@ -74,9 +92,13 @@ public class Pawn extends ChessPiece {
             if ((chessBoard[x + 1][y + 1] != null) && (chessBoard[x + 1][y + 1].getColor() != this.getColor())) {
                 possibleTurns.add(new Position(x + 1, y + 1));
             }
+            else {
+                // En passant
+                if (enPassantEastPossible(chessBoard, position)) {
+                    possibleTurns.add(new Position(x + 1, y + 1));
+                }
+            }
         }
-
-        // TODO: En-Passante white
 
 
         // BLACK
@@ -102,6 +124,12 @@ public class Pawn extends ChessPiece {
             if ((chessBoard[x - 1][y - 1] != null) && (chessBoard[x - 1][y - 1].getColor() != this.getColor())) {
                 possibleTurns.add(new Position(x - 1, y - 1));
             }
+            else {
+                // En passant
+                if (enPassantWestPossible(chessBoard, position)) {
+                    possibleTurns.add(new Position(x - 1, y - 1));
+                }
+            }
         }
 
         // Kill south-east (black)
@@ -110,10 +138,35 @@ public class Pawn extends ChessPiece {
             if ((chessBoard[x + 1][y - 1] != null) && (chessBoard[x + 1][y - 1].getColor() != this.getColor())) {
                 possibleTurns.add(new Position(x + 1, y - 1));
             }
+            else {
+                // En passant
+                if (enPassantEastPossible(chessBoard, position)) {
+                    possibleTurns.add(new Position(x + 1, y - 1));
+                }
+            }
+        }
+        return possibleTurns;
+    }
+
+    private boolean enPassantWestPossible(ChessPiece[][] chessBoard, Position position) {
+        int x = position.x;
+        int y = position.y;
+
+        if ((chessBoard[x - 1][y].getClass() == Pawn.class) && (chessBoard[x - 1][y].getColor() != this.getColor()) && ((Pawn) chessBoard[x - 1][y]).getIsEnPassantTarget()) {
+            return true;
         }
 
-        // TODO: En-Passante black
-        return possibleTurns;
+        return false;
+    }
+
+    private boolean enPassantEastPossible(ChessPiece[][] chessBoard, Position position) {
+        int x = position.x;
+        int y = position.y;
+
+        if ((chessBoard[x + 1][y].getClass() == Pawn.class) && (chessBoard[x + 1][y].getColor() != this.getColor()) && ((Pawn) chessBoard[x + 1][y]).getIsEnPassantTarget()) {
+            return true;
+        }
+        return false;
     }
 
 
