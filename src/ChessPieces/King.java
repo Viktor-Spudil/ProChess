@@ -119,7 +119,7 @@ public class King extends ChessPiece {
                 }
                 // Castling east (black)
                 if ((chessBoard[5][7] == null) && (chessBoard[6][7] == null) && (chessBoard[7][7].getHasMoved() == false)) {
-                    possibleTurns.add(new Position(6,7));
+                    possibleTurns.add(new Position(5,7));
                 }
             }
         }
