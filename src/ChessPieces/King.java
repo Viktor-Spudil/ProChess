@@ -104,11 +104,11 @@ public class King extends ChessPiece {
         if (this.getHasMoved() == false) {
             if (this.getColor() == Color.WHITE) {
                 // Castling west (white)
-                if ((chessBoard[1][0] == null) && (chessBoard[2][0] == null) && (chessBoard[0][0].getHasMoved() == false)) {
+                if ((chessBoard[1][0] == null) && (chessBoard[2][0] == null) && (chessBoard[3][0] == null) && (chessBoard[0][0].getHasMoved() == false)) {
                     possibleTurns.add(new Position(2,0));
                 }
                 // Castling east (white)
-                if ((chessBoard[4][0] == null) && (chessBoard[5][0] == null) && (chessBoard[6][0] == null) && (chessBoard[7][0].getHasMoved() == false)) {
+                if ((chessBoard[5][0] == null) && (chessBoard[6][0] == null) && (chessBoard[7][0].getHasMoved() == false)) {
                     possibleTurns.add(new Position(6,0));
                 }
             }
