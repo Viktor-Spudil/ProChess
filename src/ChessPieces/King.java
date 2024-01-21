@@ -58,6 +58,20 @@ public class King extends ChessPiece {
             }
         }
 
+        // Move north-east
+        if (((x + 1) < 8) && ((y + 1) < 8)) {
+            // Check if the field is free
+            if (chessBoard[x + 1][y + 1] == null) {
+                possibleTurns.add(new Position(x + 1, y + 1));
+            }
+            // Check if there is an enemies figure standing on the occupied field
+            else {
+                if (chessBoard[x + 1][y + 1].getColor() != this.getColor()) {
+                    possibleTurns.add(new Position(x + 1, y + 1));
+                }
+            }
+        }
+
         // Move east
         if ((x + 1) < 8) {
             // Check if the field is free
@@ -68,6 +82,20 @@ public class King extends ChessPiece {
             else {
                 if (chessBoard[x + 1][y].getColor() != this.getColor()) {
                     possibleTurns.add(new Position(x + 1, y));
+                }
+            }
+        }
+
+        // Move south-east
+        if (((x + 1) < 8) && ((y - 1) >= 0)) {
+            // Check if the field is free
+            if (chessBoard[x + 1][y - 1] == null) {
+                possibleTurns.add(new Position(x + 1, y - 1));
+            }
+            // Check if there is an enemies figure standing on the occupied field
+            else {
+                if (chessBoard[x + 1][y - 1].getColor() != this.getColor()) {
+                    possibleTurns.add(new Position(x + 1, y - 1));
                 }
             }
         }
@@ -86,6 +114,20 @@ public class King extends ChessPiece {
             }
         }
 
+        // Move south-west
+        if (((x - 1) >= 0) && ((y - 1) >= 0)) {
+            // Check if the field is free
+            if (chessBoard[x - 1][y - 1] == null) {
+                possibleTurns.add(new Position(x - 1, y - 1));
+            }
+            // Check if there is an enemies figure standing on the occupied field
+            else {
+                if (chessBoard[x - 1][y - 1].getColor() != this.getColor()) {
+                    possibleTurns.add(new Position(x - 1, y - 1));
+                }
+            }
+        }
+
         // Move west
         if ((x - 1) >= 0) {
             // Check if the field is free
@@ -96,6 +138,20 @@ public class King extends ChessPiece {
             else {
                 if (chessBoard[x - 1][y].getColor() != this.getColor()) {
                     possibleTurns.add(new Position(x - 1, y));
+                }
+            }
+        }
+
+        // Move north-west
+        if (((x - 1) >= 0) && ((y + 1) < 8)) {
+            // Check if the field is free
+            if (chessBoard[x - 1][y + 1] == null) {
+                possibleTurns.add(new Position(x - 1, y + 1));
+            }
+            // Check if there is an enemies figure standing on the occupied field
+            else {
+                if (chessBoard[x - 1][y + 1].getColor() != this.getColor()) {
+                    possibleTurns.add(new Position(x - 1, y + 1));
                 }
             }
         }
